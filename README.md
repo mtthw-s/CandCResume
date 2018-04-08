@@ -1,2 +1,2 @@
 # CandCResume
-sample resume application for CandC class
+sample resume application for CandC class.
