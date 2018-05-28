@@ -1,0 +1,19 @@
+{
+  "name": "candc-resume",
+  "version": "1.0.0",
+  "description": "Resume for the CandC course",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtthw-s/CandCResume.git"
+  },
+  "author": "Matt Sanford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtthw-s/CandCResume/issues"
+  },
+  "homepage": "https://github.com/mtthw-s/CandCResume#readme"
+}
