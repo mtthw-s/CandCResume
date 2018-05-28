@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/mtthw-s/CandCResume/issues"
   },
-  "homepage": "https://github.com/mtthw-s/CandCResume#readme"
+  "homepage": "https://github.com/mtthw-s/CandCResume#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.1.2",
+    "morgan": "^1.9.0"
+  }
 }
