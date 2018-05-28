@@ -1,0 +1,19 @@
+{
+  "name": "candc-resume",
+  "description": "Resume for the CandC course",
+  "main": "server.js",
+  "authors": [
+    "Matt Sanford"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mtthw-s/CandCResume",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
