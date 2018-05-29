@@ -1,0 +1,113 @@
+  <table>
+    <tr>
+      <td>Your wallet is</td>
+      <td>$<span id="wallet"></span></td>
+    </tr>
+    <tr>
+      <td>Place your bet: </td>
+      <td>$<input type="number" id="numBet" /></td>
+    </tr>
+  </table>
+  <input type="button" onclick="playCraps()" value="Play Craps" />
+  
+  
+     <script type="text/javascript">
+      var common = common || {};
+      common.GetRandomNumber = function(min, max){
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
+      
+      function rollDice(){
+        var d1 = common.GetRandomNumber(1,6);
+        var d2 = common.GetRandomNumber(1,6);
+        return d1 + d2;
+      };
+      
+      function PlaceBet(){
+        var wallet = getWallet();
+        var bet = document.getElementById("numBet").value;
+        if(!bet || bet > wallet || bet == 0){
+          alert("Bet must be between 1 and " + wallet);
+          betting = true;
+          return false;
+        }
+          
+        setWallet(getWallet() - bet);
+        return bet;
+      };
+      
+      function getWallet(){
+        return parseInt(document.getElementById("wallet").innerText);
+      };
+      function setWallet(val){
+        document.getElementById("wallet").innerText = val;
+      };
+      
+      function initializeWallet(){
+        var wallet = 500;
+        var wallSpan = document.getElementById("wallet");
+        wallSpan.innerText = wallet;
+      };
+      
+      function addToWallet(val){
+        var w = getWallet();
+        var newVal = w + val;
+        setWallet(newVal);
+        return newVal;
+      };
+      
+      function won(roll, point, first){
+        if(first && roll == 7){
+          return true;
+        }
+        else if(!first && roll == 7){
+          return false;
+        }
+        else if(!first && roll == point){
+          return true;
+        }
+        return false;
+      };
+      
+      var playCraps = function(){
+        var msg;
+        var bet, point = 0, turn, wallet = 0;
+        var stillPlaying = true;
+          var first = true;
+          bet = PlaceBet();
+          if(!bet){
+            return;
+          }
+          var roll = rollDice();
+          alert("Your roll was a " + roll);
+          if(roll != 7){
+            first = false;
+            point = roll;
+            roll = 0;
+            while(roll != 7 && roll != point){
+              roll = rollDice();
+              alert("Your roll was a " + roll);
+            }
+          }
+          if(won(roll, point, first)){
+            wallet = addToWallet(bet * 2);
+            msg = "You won! Your wallet has $" + wallet + " in it.";
+          }
+          else{
+            wallet = getWallet();
+            msg = "You lost! Your wallet has $" + wallet + " in it.";
+          }
+          msg = "You got a " + roll + " you point was a " + point + "\n" + msg;
+          if(wallet < 0 || wallet == 0){
+            stillPlaying = false;
+            alert("You don't have enough money to keep playing!")
+          }
+          else{
+            alert(msg);
+          }
+        
+      };
+      initializeWallet();
+   </script>

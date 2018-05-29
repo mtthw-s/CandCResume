@@ -1,0 +1,58 @@
+   <script type="text/javascript">
+      var getTotal = function(){
+        var ansEle, price, wed, coupon
+        ansEle = document.getElementById("ans");
+        price = parseInt(document.getElementById("ddAge").value);
+        if(price == 0){
+          ansEle.innerText = "Total due: $0.00";
+          return;
+        }
+        wed = (document.getElementById("ddDay").value == "true");
+        coupon = (document.getElementById("ddCoupon").value == "true");
+        if(wed){
+          price = price / 2;
+        }
+        if(coupon){
+          price = price - 1
+        }
+        ansEle.innerText = "Total due: $" + (Math.ceil(price * 100) / 100).toFixed(2);
+      };
+   </script>
+  <table>
+    <tr>
+      <td>
+        Age:
+      </td>
+      <td>
+        <select id="ddAge">
+          <option value="12">Adult</option>
+          <option value="9">Student</option>
+          <option value="0">Child - under 6 years old</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Is it Wednesday?
+      </td>
+      <td>
+        <select id="ddDay">
+          <option value="false" >No</option>
+          <option value="true" >Yes</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Do you have a $1.00 off coupon?
+      </td>
+      <td>
+        <select id="ddCoupon">
+          <option value="false" >No</option>
+          <option value="true" >Yes</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <input type="button" value="Calculate total" onClick="getTotal()" />
+  <h3 id="ans"></h3>
