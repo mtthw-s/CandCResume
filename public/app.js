@@ -28,6 +28,10 @@ PortfolioApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/apps/ChangeTemplate.html',
         controller: 'MainController'
     })
+    .when('/apps/puzzle', {
+        templateUrl: 'partials/apps/Puzzle/npuzzle.html',
+        controller: 'MainController'
+    })
     .when('/', {
         templateUrl: 'partials/main.html',
         controller: 'MainController'
