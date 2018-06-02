@@ -19,5 +19,5 @@ app.get('*', function(req, res) {
 });
 
 
-app.listen(8080);
-console.log("App listening on 8080");
+app.listen(3000);
+console.log("App listening on 3000");

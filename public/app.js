@@ -12,6 +12,10 @@ PortfolioApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/apps/SimpleFormLetter.html',
         controller: 'MainController'
     })
+    .when('/comment', {
+        templateUrl: 'partials/contactme.html',
+        controller: 'CommentController'
+    })
     .when('/apps/craps', {
         templateUrl: 'partials/apps/craps.html',
         controller: 'MainController'
