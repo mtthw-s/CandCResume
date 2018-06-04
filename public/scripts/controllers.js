@@ -46,7 +46,7 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
                 //$scope.table = CreateTable($scope.path[count].flatBoard);
                 $('#btnNext').trigger('click');
                 AnimateBoards(count);
-            },  0);
+            },  100);
         }
     }
 
