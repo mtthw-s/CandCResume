@@ -69,7 +69,7 @@
             ans.push(newState);
             newState = newState.parentState;
           }
-          return ans;
+          return [ans, time];
           console.log("Solved in " + ans.length + " moves\n" + time + "</br>");
           for(var j = ans.length - 1; j >= 0; j--){
             // UI.DrawBoard(ans[j].flatBoard);

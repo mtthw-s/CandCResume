@@ -43,7 +43,8 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
         if(count > 0){
             setTimeout(function(){
                 count--;
-                $scope.table = CreateTable($scope.path[count].flatBoard);
+                //$scope.table = CreateTable($scope.path[count].flatBoard);
+                $('#btnNext').trigger('click');
                 AnimateBoards(count);
             },  0);
         }
@@ -60,10 +61,11 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
     }
 
     $scope.Run = function(){
-        $scope.path = Control.run($scope.table, $scope.boards[1]);
-        alert($scope.path.length);
+        var res = Control.run($scope.table, $scope.boards[1]);
+        $scope.path = res[0];//Control.run($scope.table, $scope.boards[1]);
+        alert(res[1] + "\nWith " + $scope.path.length + " moves\n");
         $scope.Solved = true;
-        //AnimateBoards($scope.path.length);
+        AnimateBoards($scope.path.length);
         for(var j = $scope.path.length - 1; j >= 0; j--){
             // UI.DrawBoard(ans[j].flatBoard);
             //setTimeout(function(){ 
@@ -76,7 +78,7 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
     }
 
     function SetUpBoard(size){
-        $scope.boards = Control.Setup(9);
+        $scope.boards = Control.Setup(16);
         $scope.table = CreateTable($scope.boards[0]);
         
     }
