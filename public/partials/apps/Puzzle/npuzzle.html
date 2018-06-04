@@ -4,13 +4,29 @@
         width: 100%;
         height: 100%;
       }
+      .pic{
+        width: 150px;
+        height: 150px;
+      }
+      #tblPuzzle{
+        display: none;
+      }
     </style>
 
-    <label>Enter Size of puzzle:</label>
-    <input type="number" placeholder="9" id="numBoard" />
-    <input type="button" value="Run" onClick="Control.StartGame()" />
+    <!-- <label>Enter Size of puzzle:</label> -->
+    <!-- <input type="number" placeholder="9" id="numBoard" /> -->
+    <input type="button" value="Run" ng-click="Run()" />
+    <input type="button" value="Show Next Move" ng-show="Solved" ng-click="ShowNextMove()" />
+    
     
     <table id="tblPuzzle"></table>
+    <table id="tblPuzzle2">
+      <tr ng-repeat="row in table.rows">
+        <td ng-repeat="cell in row.cells">
+          <img class="pic" src="{{cell.src}}" />
+        </td>
+      </tr>
+    </table>
     
 
     <script>

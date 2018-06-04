@@ -80,6 +80,18 @@
 		  }
 		  return board;
 		}
+		self.ReadBoard3 = function(table){
+		  // var table = document.getElementById(tblID);
+			var board = [];
+		  for(var i = 0; i < table.rows.length; i++){
+		    var row = table.rows[i];
+		    for(var j = 0; j < row.cells.length; j++){
+		      //var pos = row.cells[j].childNodes[0].id.split(".");
+		      board.push({val: parseInt(row.cells[j].val), row: row.cells[j].row, col: row.cells[j].col});
+		    }
+		  }
+		  return board;
+		}
 		
 		/*
 		Private function

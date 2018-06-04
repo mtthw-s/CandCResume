@@ -51,10 +51,10 @@
       }
       
       
-      function run(start, end){
-        UI.DrawBoard(start);
+      this.run = function(start, end){
+        //UI.DrawBoard(start);
         var final;
-        var b = UI.ReadBoard2();
+        var b = UI.ReadBoard3(start);
         var newState = AI.createState(b, end);
           var path = [];
           var startTime = Date.now();
@@ -63,20 +63,22 @@
             newState = AI.makeMove2(newState);
           }
           var time = "Time: " + ((Date.now() - startTime)/1000) + " secs";
-          UI.DrawBoard(newState.flatBoard);
+          //UI.DrawBoard(newState.flatBoard);
           var ans = [];
           while(newState !== null){
             ans.push(newState);
             newState = newState.parentState;
           }
+          return ans;
           console.log("Solved in " + ans.length + " moves\n" + time + "</br>");
           for(var j = ans.length - 1; j >= 0; j--){
-            UI.DrawBoard(ans[j].flatBoard);
+            // UI.DrawBoard(ans[j].flatBoard);
+            start.SetUpBoard(ans[j].flatBoard);
             console.log(ans[j].flatString + " score: " + ans[j].score + " distance: " + ans[j].distance + "</br>");
           }
       }
       
-      function Setup(num){
+      this.Setup = function(num){
         var end = [];
         var start;
         for(var i = 0; i < num; i++){
@@ -90,10 +92,6 @@
         state.setBoard(b);
         state = Shuffle(state);
         return [state.flatBoard, end];
-      }
-      
-      this.startGame = function(){
-        
       }
   }
       

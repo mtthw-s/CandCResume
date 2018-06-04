@@ -14,10 +14,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({type: 'application/vnd+json'}));
 app.use(methodOverride());
 
+app.get('/api/getimage/:imageId', function(req, res){
+    res.sendfile("./public/res/" + req.params.imageId + ".jpg");
+});
+
 app.get('*', function(req, res) {
     res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
 
 
-app.listen(3000);
-console.log("App listening on 3000");
+app.listen(3100);
+console.log("App listening on 3100");
