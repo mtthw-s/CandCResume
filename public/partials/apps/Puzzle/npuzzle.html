@@ -15,6 +15,7 @@
 
     <!-- <label>Enter Size of puzzle:</label> -->
     <!-- <input type="number" placeholder="9" id="numBoard" /> -->
+    <p> This puzzle was completed in partnership with Brandy and Caity</p>
     <input type="button" value="Run" ng-click="Run()" />
     <input type="button" id="btnNext" value="Show Next Move" ng-show="Solved" ng-click="ShowNextMove()" />
     
@@ -23,7 +24,7 @@
     <table id="tblPuzzle2">
       <tr ng-repeat="row in table.rows">
         <td ng-repeat="cell in row.cells">
-          <img class="pic" src="{{cell.src}}" />
+          <img class="pic" src="{{cell.src}}" alt="{{cell.val}}"/>
         </td>
       </tr>
     </table>

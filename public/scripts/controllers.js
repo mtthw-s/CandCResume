@@ -19,9 +19,7 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
         var row = [];
         for(var i = 0; i < values.length; i++){
             row.push({val:values[i],row: rowIndex, col: i, src:'/api/getimage/' + values[i]});
-		    //var cell = row.insertCell(i);
-		    //This is where the object is made, any HTML element can work.
-		    //cell.innerHTML = "<input class='cell' type='button' id='" + rowIndex + "." + i + "' value='" + values[i] + "'>";
+            //row.push({val:values[i],row: rowIndex, col: i, src:'/res/' + values[i] + ".jpg"});
         }
         return row;
     }
@@ -66,7 +64,7 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
         alert(res[1] + "\nWith " + $scope.path.length + " moves\n");
         $scope.Solved = true;
         AnimateBoards($scope.path.length);
-        for(var j = $scope.path.length - 1; j >= 0; j--){
+        //for(var j = $scope.path.length - 1; j >= 0; j--){
             // UI.DrawBoard(ans[j].flatBoard);
             //setTimeout(function(){ 
                 //$scope.table = CreateTable($scope.path[j].flatBoard);
@@ -74,7 +72,7 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
             // $scope.table = CreateTable(path[j].flatBoard);
             //start.SetUpBoard(ans[j].flatBoard);
             //console.log(ans[j].flatString + " score: " + ans[j].score + " distance: " + ans[j].distance + "</br>");
-        }
+        //}
     }
 
     function SetUpBoard(size){
