@@ -18,7 +18,7 @@ AppControllers.controller("puzzleController", ['$scope', '$http', function($scop
     function CreateRow(values, rowIndex){
         var row = [];
         for(var i = 0; i < values.length; i++){
-            row.push({val:values[i],row: rowIndex, col: i, src:'/api/getimage/' + values[i]});
+            row.push({val:values[i],row: rowIndex, col: i, src:'/res/' + values[i] + '.jpg'});
             //row.push({val:values[i],row: rowIndex, col: i, src:'/res/' + values[i] + ".jpg"});
         }
         return row;
